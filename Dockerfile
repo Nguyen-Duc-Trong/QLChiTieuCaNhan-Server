@@ -18,6 +18,9 @@ RUN npm install
 # Copy toàn bộ source
 COPY . .
 
+# Cấp quyền chạy script migration
+RUN chmod +x ./scripts/migrate.sh
+
 # Build (nếu dùng TS)
 RUN npm run build
 
