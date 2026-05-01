@@ -6,6 +6,9 @@
 app = 'ql-chi-tieu-ca-nhan-server'
 primary_region = 'sin'
 
+[deploy]
+  release_command = "atlas migrate apply --url $DATABASE_URL --dir file://atlas/migrations"
+
 [build]
 
 [env]

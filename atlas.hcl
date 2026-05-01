@@ -23,3 +23,10 @@ env "local" {
     }
   }
 }
+
+env "production" {
+  url = var.DATABASE_URL
+  migration {
+    dir = "file://atlas/migrations"
+  }
+}

@@ -4,6 +4,7 @@ FROM node:20-alpine
 
 #Install postgresql client
 RUN apk add --no-cache postgresql-client curl
+RUN curl -sSf https://atlasgo.sh | sh
 
 # Tạo thư mục app
 WORKDIR /app
