@@ -1,12 +1,15 @@
-# fly.toml app configuration file generated for qlchitieucanhan-server on 2026-05-01T09:17:28Z
+# fly.toml app configuration file generated for ql-chi-tieu-ca-nhan-server on 2026-05-01T16:44:51+07:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'qlchitieucanhan-server'
-primary_region = 'ams'
+app = 'ql-chi-tieu-ca-nhan-server'
+primary_region = 'sin'
 
 [build]
+
+[env]
+  PORT = '3000'
 
 [http_service]
   internal_port = 8080
@@ -17,9 +20,6 @@ primary_region = 'ams'
   processes = ['app']
 
 [[vm]]
-  cpu_kind = 'shared'
+  memory = '512mb'
   cpus = 1
   memory_mb = 512
-
-[env]
-  PORT = "3000"
