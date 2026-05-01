@@ -7,7 +7,7 @@ app = 'ql-chi-tieu-ca-nhan-server'
 primary_region = 'sin'
 
 [deploy]
-  release_command = "atlas migrate apply --url $DATABASE_URL --dir file://atlas/migrations"
+  release_command = "atlas migrate apply --url $(echo $DATABASE_URL | sed 's/^postgres:/postgresql:/') --dir file://atlas/migrations"
 
 [build]
 
