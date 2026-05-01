@@ -1,0 +1,9 @@
+node_modules
+dist
+npm-debug.log
+.git
+.vscode
+.env
+docker-compose.yml
+Dockerfile
+fly.toml
