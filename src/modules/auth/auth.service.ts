@@ -50,7 +50,7 @@ export class AuthService {
 
 	}
 
-	async logout(req: Express.Request): Promise<AuthResponse> {
+	async logout(req: any): Promise<AuthResponse> {
 		req.session.destroy((err) => {
 			if (err) {
 				throw new BadRequestException("Đăng xuất thất bại!");
