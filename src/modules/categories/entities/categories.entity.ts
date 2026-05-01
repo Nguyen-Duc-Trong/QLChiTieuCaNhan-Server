@@ -1,5 +1,5 @@
-import { WalletType } from "src/common/enums/walletType.enum";
-import { TransactionsEntity } from "src/modules/transactions/entities/transactions.entity";
+import { WalletType } from "../../../common/enums/walletType.enum";
+import { TransactionsEntity } from "../../transactions/entities/transactions.entity";
 import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
 
 @Entity('categories')

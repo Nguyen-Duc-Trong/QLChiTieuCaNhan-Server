@@ -1,5 +1,9 @@
 # Base image
-FROM node:18-alpine
+FROM node:20-alpine
+
+
+#Install postgresql client
+RUN apk add --no-cache postgresql-client curl
 
 # Tạo thư mục app
 WORKDIR /app
