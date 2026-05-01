@@ -13,3 +13,6 @@ primary_region = "hkg"
   cpu_kind = "shared"
   cpus = 1
   memory_mb = 512
+
+[env]
+  PORT = "3000"
