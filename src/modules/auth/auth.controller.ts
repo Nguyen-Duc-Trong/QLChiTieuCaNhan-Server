@@ -9,6 +9,7 @@ export class AuthController {
 
 	@Post('register')
 	async register(@Body() registerDto: RegisterDto) {
+		// console.log('AuthController: Đang gọi API register với dữ liệu:', registerDto);
 		return await this.authService.register(registerDto);
 	}
 

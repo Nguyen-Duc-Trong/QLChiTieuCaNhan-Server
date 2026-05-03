@@ -14,19 +14,26 @@ export class AuthService {
 
 
 	async register(user: RegisterDto): Promise<AuthResponse> {
-		const checkMail = await this.userService.hasByEmail(user.email);
-		if (checkMail) {
-			throw new BadRequestException("Email đã tồn tại!");
+		try {
+			// console.log('AuthService: Bắt đầu xử lý đăng ký cho email:', user.email);
+			const checkMail = await this.userService.hasByEmail(user.email);
+			if (checkMail) {
+				throw new BadRequestException("Email đã tồn tại!");
+			}
+
+			const passwordHash = await this.userService.hashPassword(user.password)
+			await this.userService.create({
+				email: user.email,
+				name: user.name,
+				password: passwordHash,
+			});
+
+			// console.log('AuthService: Đăng ký thành công cho email:', user.email);
+			return { message: "Đăng ký thành công!" };
+		} catch (error) {
+			console.error('AuthService LỖI:', error);
+			throw error;
 		}
-
-		const passwordHash = await this.userService.hashPassword(user.password)
-		await this.userService.create({
-			email: user.email,
-			name: user.name,
-			password: passwordHash,
-		});
-
-		return { message: "Đăng ký thành công!" };
 	}
 
 	async login(user: LoginDto): Promise<TokenResponse> {

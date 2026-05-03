@@ -25,7 +25,13 @@ export class TransactionsRepository {
 		await this.TransactionsEntity.update(id, payload);
 	}
 
-	async delete() { }
+	async findOne(id: string, userId: string) {
+		const result = await this.TransactionsEntity.findOne({ where: { id, userId }, relations: ['categories'] });
+		if (!result) {
+			throw new BadRequestException("ID không hợp lệ!");
+		}
+		return result;
+	}
 
 	async findAll(params: FindAllDto): Promise<ITransactionsRepositoryResult> {
 		const page = Number(params.page) || 1;
